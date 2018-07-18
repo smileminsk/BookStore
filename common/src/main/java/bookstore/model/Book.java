@@ -28,7 +28,7 @@ public class Book {
     }
 
     public InputStream getFileData() {
-        return fileData;
+        return this.fileData;
     }
 
     public void setFileData(InputStream fileData) {
@@ -36,7 +36,7 @@ public class Book {
     }
 
     public int getBookId() {
-        return bookId;
+        return this.bookId;
     }
 
     public void setBookId(int bookId) {
@@ -44,7 +44,7 @@ public class Book {
     }
 
     public String getBookName() {
-        return bookName;
+        return this.bookName;
     }
 
     public void setBookName(String bookName) {
@@ -52,7 +52,7 @@ public class Book {
     }
 
     public String getBookAuthor() {
-        return bookAuthor;
+        return this.bookAuthor;
     }
 
     public void setBookAuthor(String bookAuthor) {
@@ -60,7 +60,7 @@ public class Book {
     }
 
     public String getFileName() {
-        return fileName;
+        return this.fileName;
     }
 
     public void setFileName(String fileName) {

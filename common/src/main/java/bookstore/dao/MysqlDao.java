@@ -2,12 +2,11 @@ package bookstore.dao;
 
 import bookstore.model.Book;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-
 import javax.sql.DataSource;
 import java.util.List;
 
-//@Repository
+
+
 public class MysqlDao implements BookDao {
 
     private JdbcTemplate jdbcTemplate;

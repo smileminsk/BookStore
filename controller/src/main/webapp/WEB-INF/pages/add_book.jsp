@@ -6,15 +6,16 @@
 </head>
 <body>
 <h2 align="center">Add Book</h2>
-<spring:form modelAttribute="bookFromServer" method="post" action="/add" enctype="multipart/form-data">
+<spring:form modelAttribute="bookFromServer" method="post" action="/add"
+              enctype="multipart/form-data">
     <table border="0" align="center">
         <tr>
             <td>Book title</td>
-            <td><spring:input path="bookName"/></td>
+            <td><spring:input id="title" path="bookName"/></td>
         </tr>
         <tr>
             <td>Book author</td>
-            <td><spring:input path="bookAuthor"/></td>
+            <td><spring:input id="author" path="bookAuthor"/></td>
         </tr>
         <tr>
             <td>File</td>

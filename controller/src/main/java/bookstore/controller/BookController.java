@@ -42,20 +42,23 @@ public class BookController {
     public ModelAndView addBook(@ModelAttribute("bookFromServer") Book book,
                                 @RequestParam("file") MultipartFile file) throws IOException {
 
-        String fileName = file.getOriginalFilename();
-        InputStream inputStream;
+        if (!book.getBookName().equals("") || !book.getBookAuthor().equals("")) {
+            String fileName = file.getOriginalFilename();
+            InputStream inputStream;
 
-        if (file != null && !fileName.equals("")) {
-            inputStream = file.getInputStream();
-            book.setFileData(inputStream);
-            book.setFileName(fileName);
-        }
+            if (file != null && !fileName.equals("")) {
+                inputStream = file.getInputStream();
+                book.setFileData(inputStream);
+                book.setFileName(fileName);
+            }
 
-        bookDao.addBook(book);
-        return new ModelAndView("redirect:/");
+            bookDao.addBook(book);
+            return new ModelAndView("redirect:/");
+        } else return new ModelAndView("add_book");
     }
 
 
+    //Скачивание книги
     @RequestMapping(value = "/dwn", method = RequestMethod.GET)
     @ResponseBody
     public void downloadBook(@RequestParam("bid") int id, HttpServletResponse resp) throws IOException {
@@ -77,6 +80,7 @@ public class BookController {
     }
 
 
+    //Удаление книги
     @RequestMapping(value = "/del", method = RequestMethod.POST)
     public ModelAndView deleteBookById(@RequestParam("bid") int id) {
         bookDao.removeBook(id);

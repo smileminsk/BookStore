@@ -1,12 +1,10 @@
 package bookstore.dao;
 
 import bookstore.model.Book;
-import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//@Repository
 public class FakeDao implements BookDao{
 
     private List<Book> list = new ArrayList<>();
