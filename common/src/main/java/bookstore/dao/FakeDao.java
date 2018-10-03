@@ -1,6 +1,8 @@
 package bookstore.dao;
 
 import bookstore.model.Book;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,10 +12,16 @@ public class FakeDao implements BookDao{
     private List<Book> list = new ArrayList<>();
 
     {
-        list.add(new Book(1, "Effective java 2nd edition", "Joshua Bloch", ""));
-        list.add(new Book(2, "Thinking In Java", "Bruce Eckel", ""));
-        list.add(new Book(3, "Core Java", "Cay Horstmann", ""));
-        list.add(new Book(4, "A Beginner's Guide", "Herbert Schildt", ""));
+        list.add(new Book(1, "Fake Effective java 2nd edition", "Joshua Bloch", ""));
+        list.add(new Book(2, "Fake Thinking In Java", "Bruce Eckel", ""));
+        list.add(new Book(3, "Fake Core Java", "Cay Horstmann", ""));
+        list.add(new Book(4, "Fake A Beginner's Guide", "Herbert Schildt", ""));
+    }
+
+    public FakeDao() {
+    }
+
+    public FakeDao(DriverManagerDataSource driverManagerDataSource) {
     }
 
     @Override

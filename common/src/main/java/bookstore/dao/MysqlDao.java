@@ -37,13 +37,13 @@ public class MysqlDao implements BookDao {
     public List<Book> getAllBooks() {
         String sql = "select b_id, b_name, b_author, b_filename from book";
         List<Book> list = jdbcTemplate.query(sql, (rs, rowNum) -> {
-            Book book = new Book();
-            book.setBookId(rs.getInt("b_id"));
-            book.setBookName(rs.getString("b_name"));
-            book.setBookAuthor(rs.getString("b_author"));
-            book.setFileName(rs.getString("b_filename"));
-
-            return book;
+            Book book = new Book(
+                rs.getInt("b_id"),
+                rs.getString("b_name"),
+                rs.getString("b_author"),
+                rs.getString("b_filename")
+            );
+                return book;
         });
 
         return list;
@@ -55,11 +55,12 @@ public class MysqlDao implements BookDao {
         Book book = jdbcTemplate.queryForObject(sql,
             new Integer[]{id},
                 (rs, rowNum) -> {
-                    Book bookWithData = new Book();
-                    bookWithData.setBookId(rs.getInt("b_id"));
-                    bookWithData.setBookName(rs.getString("b_name"));
-                    bookWithData.setBookAuthor(rs.getString("b_author"));
-                    bookWithData.setFileName(rs.getString("b_filename"));
+                    Book bookWithData = new Book(
+                        rs.getInt("b_id"),
+                        rs.getString("b_name"),
+                        rs.getString("b_author"),
+                        rs.getString("b_filename")
+                    );
                     bookWithData.setFileData(rs.getBinaryStream("b_data"));
 
                     return bookWithData;

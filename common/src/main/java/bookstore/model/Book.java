@@ -1,15 +1,30 @@
 package bookstore.model;
 
+import javax.persistence.*;
 import java.io.InputStream;
+import java.io.Serializable;
 
 /**
  * Класс модели записи из таблицы book
  */
-public class Book {
+
+@Entity
+@Table (name = "book")
+public class Book  implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
+
+    @Column(name = "b_name")
     private String bookName = "";
+
+    @Column(name = "b_author")
     private String bookAuthor = "";
+
+    @Column(name = "b_filename")
     private String fileName = "";
+
+    @Column(name = "b_data")
     private InputStream fileData;
 
     public Book() {
@@ -27,9 +42,7 @@ public class Book {
         this.bookAuthor = bookAuthor;
     }
 
-    public InputStream getFileData() {
-        return this.fileData;
-    }
+    public InputStream getFileData() { return this.fileData; }
 
     public void setFileData(InputStream fileData) {
         this.fileData = fileData;

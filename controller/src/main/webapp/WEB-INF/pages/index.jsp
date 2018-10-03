@@ -28,7 +28,7 @@
             </td>
         </tr>
     </table>
-
+    Текущее время <%= new java.util.Date()%>
 </body>
 </html>
 
