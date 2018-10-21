@@ -9,6 +9,6 @@ subprojects {
     }
 
     dependencies{
-        compile group: 'org.hibernate', name: 'hibernate-core', version: '5.3.6.Final'
+
     }
 }
